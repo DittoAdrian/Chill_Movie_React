@@ -2,7 +2,7 @@ import {createBrowserRouter} from 'react-router-dom'
 import App from '../App'
 import LoginPage from '../pages/login'
 import RegisterPage from '../pages/register'
-
+import Homepage from '../pages/homepage'
 
 const route = createBrowserRouter([
     {
@@ -19,7 +19,7 @@ const route = createBrowserRouter([
     },
     {
         path:'/homepage',
-        element: <h1 style={{color:'black'}}>Test</h1>
+        element: <Homepage/>
     }
 ])
 

@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Londrina+Solid:wght@100;300;400;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background-color: rgba(24, 26, 28, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* ======================== Navbar ======================== */
+.navbar {
+    display: flex;
+    background-color: rgba(32, 32, 38, 1);
+    width: 100vw;
+    height: 74px;
+    justify-content: center;
+  }
+  .navbar_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1760px;
+    margin: auto;
+    position: relative;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: row;
+    width: 55%;
+    max-width: 520px;
+    justify-content: space-between;
+    /* background-color: red; */
+  }
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30%;
+    margin-left: 15%;
+    /* margin-left: 20px */
+  }
+  .logo img {
+    /* height: 36px; */
+    max-width: 33px;
+    width: 25%;
+    margin-right: 5px;
+  }
+  .logo h1 {
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+  }
+  
+  .menu ul {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: red;*/
+  }
+  .menu li {
+    display: flex;
+    align-items: center;
+    /* background-color: blue; */
+    list-style: none;
+  }
+  .menu a {
+    text-decoration: none;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  
+  .profile {
+    margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+    user-select: none;
+    align-items: center;
+  }
+  .profile img {
+    max-width: 35px;
+    max-height: 35px;
+  }
+  .profile img:nth-child(1):hover {
+    border-radius: 50%;
+    opacity: 50%;
+  }
+
+  .butoonDrop {
+    transform: rotate(180deg);  
+  }
+  .butoonDrop:hover {
+    background-color: rgb(69, 69, 82);
+    border-radius: 5px;
+  }
+  .butoonDrop:active {
+    background-color: rgb(50, 50, 59);
+    border-radius: 5px;
+  }
+  .butoonDrop.rotate {
+    transform: rotate(0deg);
+  }
+  
+  .dropDown {
+    background-color: rgb(29, 29, 34);
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 15%;
+    border-radius: 10px;
+    min-width: 180px;
+    z-index: 99;
+    display: none;
+  }
+  .dropDown a {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: start;
+    gap: 8%;
+    text-decoration: none;
+  }
+  .dropDown a img {
+    width: 16px;
+    height: 16px;
+  }
+  .dropDown a:hover {
+    background-color: rgb(45, 45, 53);
+    border-radius: 10px;
+  }
+  .dropDown.active {
+    display: block;
+  }
+  /* =============== Responsive Navbar =============== */
+@media (max-width: 768px) {
+    .menu a {
+      font-size: 15px;
+    }
+    .menu ul {
+      gap: 10px;
+    }
+  }
+  @media (max-width: 650px) {
+    .menu a {
+      font-size: 13px;
+    }
+    .logo h1 {
+      font-size: 25px;
+    }
+    .profile img {
+      width: 50%;
+    }
+    .jumbotron {
+      height: 480px;
+    }
+  }
+  @media (max-width: 480px) {
+    .logo img {
+      display: none;
+    }
+  }
+  

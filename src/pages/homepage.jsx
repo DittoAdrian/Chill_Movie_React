@@ -1,6 +1,9 @@
+import Navbar from '../components/Homepage/navbar.jsx'
+
+
 
 const  Homepage = ()=>{
-    return <h1 style={{color:'black'}}>Homepage</h1>
+    return <Navbar/>
 }
 
 export default Homepage;
