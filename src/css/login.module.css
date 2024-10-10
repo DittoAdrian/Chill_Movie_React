@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Londrina+Solid:wght@100;300;400;900&display=swap');
+
+
+*{
+    margin : 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    color: white;
+}
+
+/* Wallpaper */
+.loginBox{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.082),rgba(0, 0, 0, 0.123)),url('../assets/images/LoginBackground.png');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+/* Login Box */
+.formBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 529px;
+    min-width: 360px;
+    height:663px ;
+    background-color: #181a1cd3;
+    border-radius: 25px;
+    margin: 15%;
+}
+
+/* Logo */
+.formLogo{
+    display: flex;
+    flex-direction: row;
+    font-family:"Londrina Solid", sans-serif;
+    color: white;
+    width: 35%;
+    margin-top:12%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.formLogo img{
+    max-width: 50px;
+    max-height: 50px;
+}
+.formLogo h1{
+    font-family:"Londrina Solid", sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+/* Greating */
+.formGreeting h2{
+    text-align: center;
+    font-size:32px;
+    margin-top: 10%;
+}.formGreeting p{
+    text-align: center;
+}
+
+/* Form Inputan */
+.inputLogin{
+    width: 85%;
+    margin: auto;
+}
+
+/* INPUTAN */
+.inputPassword {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    margin-top: 20px;
+    position: relative;
+}
+.inputPassword input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    border: 1px solid rgba(231, 227, 252, 0.23);
+    border-radius: 25px;
+    background-color:rgba(0, 0, 0, 0);
+    margin-top: 5px;
+    padding-left: 5%;
+}
+
+.inputPassword img{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    width: 18px;
+    cursor: pointer;}
+
+/* Daftar */
+.daftar{
+    margin: auto;
+    margin-top:3%;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.daftar a:hover{
+    color: rgb(103, 103, 255);
+}
+
+/* Button Login */
+.buttonLogin{
+    margin: auto;
+    margin-top: 5%;
+    width: 85%;
+    text-align: center;
+}
+.buttonMasuk{
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 18px;
+    background-color: rgba(231, 227, 252, 0.23);
+    border: none;
+    color:white;
+    margin: 5px;
+    user-select:none;
+}
+.buttonMasuk:hover{
+    background-color: rgba(174, 170, 190, 0.23)
+}
+.buttonMasuk:active{
+    background-color: rgba(241, 237, 255, 0.23)
+}
+
+.googlelogin{
+    background-color: rgba(255, 0, 0, 0);
+    border: 1px solid rgba(231, 227, 252, 0.23); 
+}.googlelogin:hover{
+    background-color: rgba(174, 170, 190, 0.027)
+}.googlelogin:active{background-color: rgba(184, 182, 190, 0.082);}
+
+.googlelogin img{
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Register */
+.formBoxRegister{
+    flex-direction: column;
+    width: 100%;
+    max-width: 529px;
+    min-width: 306px;
+    height:778px ;
+    background-color: #181a1cd3;
+    border-radius: 25px;
+    margin: 15%;
+}
+
+@media (max-width:620px){   
+    .daftar{
+        font-size: 13px;
+    }
+    .formBox{
+        min-width: 320px
+    }
+}
