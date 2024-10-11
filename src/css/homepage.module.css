@@ -144,6 +144,82 @@ body {
   .dropDown.active {
     display: block;
   }
+
+/* ======================== Jumbotron ======================== */
+
+.jumbotron {
+    background-image: url('../assets/images/jumbotron.jpg');
+    width: 100%;
+    height: 587px;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .jumbotron_info {
+    width: 90%;
+    margin-bottom: 3%;
+  }
+  .jumbotron_info_name {
+    display: flex;
+    flex-direction: column;
+    max-width: 560px;
+    min-width: 260px;
+    gap: 20px;
+    margin-bottom: 2%;
+  }
+  .jumbotron_info_name h1 {
+    font-size: 48px;
+  }
+
+  .hero_button {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero_button button {
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 8px 18px;
+  }
+  .hero_button button:nth-child(1) {
+    background-color: rgb(16, 33, 160);
+    border: none;
+  }
+  .hero_button button:nth-child(2) {
+    background-color: rgb(46, 54, 56);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+  }
+  .hero_button i {
+    text-align: center;
+    font-size: 12px;
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 24px;
+    border: 1px solid white;
+  }
+  .volume_off {
+    background-color: transparent;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    padding: 5px 5px !important ;
+    margin-left: auto;
+  }
+  .volume_off img {
+    width: 15px;
+  }
+  .hero_button button:hover {
+    opacity: 0.8;
+  }
+
+
   /* =============== Responsive Navbar =============== */
 @media (max-width: 768px) {
     .menu a {

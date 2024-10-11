@@ -1,7 +1,7 @@
-import style from '../../css/homepage.module.css'
-import dropDown1 from '../../assets/images/dropDown1.png'
-import dropDown2 from '../../assets/images/dropDown2.png'
-import dropDown3 from '../../assets/images/dropDown3.png'
+import style from '../../../css/homepage.module.css'
+import dropDown1 from '../../../assets/images/dropDown1.png'
+import dropDown2 from '../../../assets/images/dropDown2.png'
+import dropDown3 from '../../../assets/images/dropDown3.png'
 
 const DropDown = (props)=>{
     
