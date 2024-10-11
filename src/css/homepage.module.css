@@ -218,8 +218,10 @@ body {
   .hero_button button:hover {
     opacity: 0.8;
   }
-
-
+.jawir{
+    color :white;
+    font-size:80px ;
+}
   /* =============== Responsive Navbar =============== */
 @media (max-width: 768px) {
     .menu a {
@@ -249,3 +251,105 @@ body {
     }
   }
   
+/* ======================== Lanjut Tonton ======================== */
+
+.lanjutTonton {
+    margin-top: 1.5%;
+    display: block;
+    width: 90vw;
+    /* position:relative; */
+    display: flex;
+    flex-direction: column;
+}
+.container_content_lanjut {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    /* background-color: red; */
+    justify-content: center;
+    align-items: center;
+  }
+  .container_content_lanjut > img {
+    padding: 15px;
+    background-color: rgba(47, 51, 52, 1);
+    border: 1px solid rgba(231, 227, 252, 0.23);
+    border-radius: 50%;
+    position: absolute;
+  }
+  .container_content_lanjut > img:hover {
+    background-color: rgb(60, 65, 66);
+  }
+  .container_content_lanjut > img:active {
+    background-color: rgb(45, 48, 49);
+  }
+  .container_content_lanjut > img:nth-child(1) {
+    left: 0;
+    z-index: 2;
+  }
+  .container_content_lanjut > img:nth-child(3) {
+    right: 0;
+    z-index: 2;
+  }
+
+  .lanjut_container_scroll {
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    scroll-behavior: smooth;
+  }
+  .lanjut_container_scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card_container_lanjutTonton {
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: blue; */
+    /* margin-top:1% ; */
+    gap: 20px;
+    width: max-content;
+  }
+
+  .card_lanjutTonton {
+    /* background-color: green; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 288px;
+    height: 162;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  .card_lanjutTonton_img {
+    max-width: 100%;
+    transition: transform 700ms;
+    object-fit: cover;
+  }
+  .card_lanjutTonton_img.active {
+    transform: scale(1.1);
+    filter: brightness(0.8);
+}
+
+.card_lanjutTonton_preview {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 7.5%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    transition: 400ms;
+  }
+  .card_lanjutTonton_preview.active {
+    background: linear-gradient(to top, black, transparent);
+    padding-bottom: 10%;
+  }
+  .card_lanjutTonton_preview p {
+    max-width: 70%;
+  }
