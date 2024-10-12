@@ -6,7 +6,6 @@ import ratingLogo from '../../../assets/images/star-rating.svg'
 const FilmLanjutTonton = (props)=>{
     
     const [onHover,setOnHover] = useState(false)
-    console.log(onHover)
 
     return (
     <div className={style.card_lanjutTonton} onMouseEnter={()=>{setOnHover(true)}} onMouseLeave={()=>{setOnHover(false)}}>
@@ -15,7 +14,7 @@ const FilmLanjutTonton = (props)=>{
         <div className={`${style.card_lanjutTonton_preview} ${onHover ? style.active:''}`}>
             <p className={style.lanjutTonton_nama}>{props.name}</p>
             <p className={style.lanjutTonton_rating}>
-            <img src={ratingLogo} alt=""/>
+            <img src={ratingLogo} alt="star"/>
             {props.rating}/5
             </p>
         </div>

@@ -227,8 +227,580 @@ const useData = create((set)=>({
                     'komedi'
                     ],
             deskripsi : ''           
-        }
-        
+        },
+        {
+            id :  15,
+            name : 'Everythink Everywhare all ot once',
+            rating : 4.8,
+            tahun: '2022',
+            type : 'movie',
+            update : false,
+            trending: false,
+            watched: false,
+            image : '/images/image01.png',
+            genre : [
+                    'aksi',
+                    'sci-fi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  16,
+            name : 'Alice in Borderland',
+            rating : 4.3,
+            tahun: '2020',
+            type : 'series',
+            update : true,
+            trending: false,
+            image : '/images/image02.png',
+            watched: false,
+            genre : [
+                    'drama'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  17,
+            name : 'Spider-Man: Across the Spider-Verse',
+            rating : 4.8,
+            tahun: '2023',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image03.png',
+            watched: false,
+            genre : [
+                    'aksi',
+                    'sci-fi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  18,
+            name : 'The Batman',
+            rating : 4.7,
+            tahun: '2022',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image04.png',
+            watched: false,
+            genre : [
+                    'aksi',
+                    'crime'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  19,
+            name : 'Suzume',
+            rating : 4.7,
+            tahun: '2022',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image05.png',
+            watched: false,
+            genre : [
+                    'drama',
+                    'petualangan'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  20,
+            name : 'Spirited Away',
+            rating : 4.6,
+            tahun: '2001',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image06.png',
+            watched: false,
+            genre : [
+                'petualangan',
+                'horor'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  21,
+            name : "Don't Look UP!",
+            rating : 4.1,
+            tahun: '2021',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image07.png',
+            watched: false,
+            genre : [
+                    'komedi',
+                    'sci-fi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  22,
+            name : 'Breaking Bad',
+            rating : 4.9,
+            tahun: '2008',
+            type : 'series',
+            update : true,
+            trending: false,
+            image : '/images/image08.png',
+            watched: false,
+            genre : [
+                    'drama',
+                    'crime'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  23,
+            name : 'Dark',
+            rating : 4.8,
+            tahun: '2017',
+            type : 'movie',
+            update : true,
+            trending: true,
+            image : '/images/image09.png',
+            watched: false,
+            genre : [
+                    'sci-fi',
+                    'misteri'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  24,
+            name : 'AKIRA',
+            rating : 4.7,
+            tahun: '1988',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image10.png',
+            watched: false,
+            genre : [
+                    'aksi',
+                    'sci-fi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  25,
+            name : 'Inglorius Bastard',
+            rating : 4.4,
+            tahun: '2009',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image11.png',
+            watched: false,
+            genre : [
+                    'aksi',
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  26,
+            name : 'Neon Genesis Evangelion',
+            rating : 4.7,
+            tahun: '1995',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image12.png',
+            watched: false,
+            genre : [
+                    'sci-fi',
+                    'misteri'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  27,
+            name : 'The Godfather',
+            rating : 4.9,
+            tahun: '1972',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image13.png',
+            watched: false,
+            genre : [
+                    'crime'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  28,
+            name : 'Blue Lock',
+            rating : 4.2,
+            tahun: '2022',
+            type : 'series',
+            update : true,
+            trending: true,
+            image : '/images/image14.png',
+            watched: false,
+            genre : [
+                    'olahraga',
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  29,
+            name : 'Big Hero 6',
+            rating : 4.1,
+            tahun: '2014',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image16.png',
+            watched: false,
+            genre : [
+                    'aksi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  30,
+            name : 'Duty after school',
+            rating : 3.7,
+            tahun: '2023',
+            type : 'series',
+            update : true,
+            trending: true,
+            image : '/images/image20.png',
+            watched: false,
+            genre : [
+                    'aksi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  31,
+            name : 'Doctor Strange in the Multiverse of Madness',
+            rating : 3.9,
+            tahun: '2022',
+            type : 'series',
+            update : true,
+            trending: false,
+            image : '/images/image22.png',
+            watched: false,
+            genre : [
+                    'aksi',
+                    'horor'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  32,
+            name : 'My Hero Academia',
+            rating : 4.1,
+            tahun: '2016',
+            type : 'series',
+            update : true,
+            trending: true,
+            image : '/images/image21.png',
+            watched: false,
+            genre : [
+                    'aksi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  33,
+            name : 'Dilan',
+            rating : 4.1,
+            tahun: '2018',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image28.png',
+            watched: false,
+            genre : [
+                    'drama'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  34,
+            name : 'Baymax!',
+            rating : 3.6,
+            tahun: '2023',
+            type : 'series',
+            update : true,
+            trending: false,
+            image : '/images/image27.png',
+            watched: false,
+            genre : [
+                    'drama'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  35,
+            name : 'Sonic 2',
+            rating : 3.5,
+            tahun: '2022',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image30.png',
+            watched: false,
+            genre : [
+                    'aksi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  36,
+            name : 'Guardian of the Glaxy vol:3',
+            rating : 4.7,
+            tahun: '2023',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image31.png',
+            watched: false,
+            genre : [
+                    'aksi',
+                    'petualangan'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  37,
+            name : 'Little Mermaid',
+            rating : 3.7,
+            tahun: '2023',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image32.png',
+            watched: false,
+            genre : [
+                    'drama'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  38,
+            name : 'A Man calld Otto',
+            rating : 4.1,
+            tahun: '2022',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image33.png',
+            watched: false,
+            genre : [
+                    'drama'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  39,
+            name : 'Shazam',
+            rating : 3.8,
+            tahun: '2016',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image34.png',
+            watched: false,
+            genre : [
+                    'aksi'
+                    ,'komedi'
+                ],
+            deskripsi : ''           
+        },
+        {
+            id :  40,
+            name : 'Fall',
+            rating : 4.1,
+            tahun: '2022',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image35.png',
+            watched: false,
+            genre : [
+                    'horor'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  41,
+            name : 'Parasite',
+            rating : 4.8,
+            tahun: '2019',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image36.png',
+            watched: false,
+            genre : [
+                    'drama',
+                    'komedi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  42,
+            name : 'Naruto',
+            rating : 4.1,
+            tahun: '1999',
+            type : 'series',
+            update : true,
+            trending: true,
+            image : '/images/image37.png',
+            watched: false,
+            genre : [
+                    'aksi',
+                    'petualangan'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  43,
+            name : 'Her',
+            rating : 4.2,
+            tahun: '2013',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image38.png',
+            watched: false,
+            genre : [
+                    'drama'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  44,
+            name : 'Forest Gump',
+            rating : 4.9,
+            tahun: '1994',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image40.png',
+            watched: false,
+            genre : [
+                    'drama',
+                    'komedi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  45,
+            name : 'Fight Club',
+            rating : 4.7,
+            tahun: '1999',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image41.png',
+            watched: false,
+            genre : [
+                    'aksi'
+                    ],
+            deskripsi : ''           
+        },{
+            id :  46,
+            name : 'Frieren: After The End',
+            rating : 4.9,
+            tahun: '2023',
+            type : 'series',
+            update : true,
+            trending: true,
+            image : '/images/image43.png',
+            watched: false,
+            genre : [
+                    'petualangan',
+                    'drama',
+                    'aksi'
+                    ],
+            deskripsi : ''           
+        },{
+            id :  47,
+            name : 'Dead Poet Society',
+            rating : 4.6 ,
+            tahun: '1989',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image46.png',
+            watched: false,
+            genre : [
+                    'horor'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  48,
+            name : 'Demon Slayer',
+            rating : 4.4,
+            tahun: '2022',
+            type : 'series',
+            update : true,
+            trending: true,
+            image : '/images/image47.png',
+            watched: false,
+            genre : [
+                    'aksi',
+                    'petualangan'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  49,
+            name : 'Pulp Fiction',
+            rating : 4.8,
+            tahun: '1994',
+            type : 'movie',
+            update : false,
+            trending: false,
+            image : '/images/image50.png',
+            watched: false,
+            genre : [
+                    'aksi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  50,
+            name : 'Interstelar',
+            rating : 4.9,
+            tahun: '2014',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image51.png',
+            watched: false,
+            genre : [
+                    'sci-fi'
+                    ],
+            deskripsi : ''           
+        },
+        {
+            id :  51,
+            name : 'Midsommar',
+            rating : 4.7,
+            tahun: '2019',
+            type : 'movie',
+            update : false,
+            trending: true,
+            image : '/images/image52.png',
+            watched: false,
+            genre : [
+                    'horor',
+                    'misteri'
+                    ],
+            deskripsi : ''           
+        },
         
     ]
 }))
