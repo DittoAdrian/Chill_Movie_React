@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../../../assets/images/Chill-logo.svg";
+import ChillLogo from '../../../assets/images/Chill-logo.svg';
 import profilePic from "../../../assets/images/profile.png";
 import arrowDown from "../../../assets/images/arrowDown.svg";
 import DropDown from "./nav-dropdown";
@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className={style.navbar_container}>
         <div className={style.menu}>
           <div className={style.logo}>
-            <img src={logo} alt="Chill-Logo" />
+            <img src={ChillLogo} alt="Chill-Logo" />
             <h1>CHILL</h1>
           </div>
           <ul>
