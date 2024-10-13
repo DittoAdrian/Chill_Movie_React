@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ChillLogo from '../../../assets/images/Chill-logo.svg';
+import ChillLogo from '../../../assets/images/Chill-Logo.svg';
 import profilePic from "../../../assets/images/profile.png";
 import arrowDown from "../../../assets/images/arrowDown.svg";
 import DropDown from "./nav-dropdown";
