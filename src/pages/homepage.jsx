@@ -1,5 +1,5 @@
 import Navbar from "../components/Homepage/navbar/navbar.jsx";
-import Jumbotron from "../components/Homepage/jumbotron/Jumbotron.jsx";
+import Jumbotron from "../components/Homepage/jumbotron/jumbotron.jsx";
 import ListFilm from "../components/Homepage/list-film/ListFilm.jsx"
 import Footer from '../components/Homepage/footer/footer.jsx'
 

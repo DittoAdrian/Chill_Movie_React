@@ -3,6 +3,11 @@ import {create} from 'zustand'
 const useData = create((set)=>({
     usersData : [
         {
+            username:'putraganteng',
+            password: 'putraganteng123',
+            email: 'putraganteng@gmail.com'
+        },
+        {
             username:'falah666',
             password: 'falah123',
             email: 'falah@gmail.com'
