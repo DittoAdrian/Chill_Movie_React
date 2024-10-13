@@ -27,6 +27,8 @@ const TopRating = (props)=>{
                         return (
                                 <div className={style.card_topRating} key={item.id}>
                                     {item.update && <p>Episode Baru</p>}
+                                    {props.topTen && <div className={style.trending}>Top<br/>ten</div>}
+                                    
                                     <img src={item.image}/>
                                 </div>
                         )

@@ -444,3 +444,248 @@ body {
   padding: 0px 15px 3px 15px;
   border-radius: 15px;
 }
+.trending{
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  right: 5px;
+  background-color: rgb(183,31,29);
+  padding: 5px 3px 5px 3px;
+  border-radius: 0px 5px 0px 5px;
+  font-size: 13px;
+}
+
+/* ======================== Footer ======================== */
+footer {
+  width: 90vw;
+  margin-top: 1%;
+  padding-top: 2%;
+  border-top: 1px solid rgba(56, 56, 56, 1);
+}
+.footer_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* background-color: red; */
+}
+.copyright {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  /* background-color: blue; */
+}
+.copyright p {
+  text-align: center;
+}
+
+.footer_logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* background-color:; */
+}
+.footer_logo img {
+  /* height: 36px; */
+  max-width: 33px;
+  width: 30px;
+}
+.footer_logo h1 {
+  font-family: "Londrina Solid", sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.genre {
+  /* background-color: red; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2%;
+}
+.footer_genre_header {
+  margin-bottom: 1%;
+  user-select: none;
+}
+.footer_genre_body {
+  max-height: 200px;
+}
+.footer_genre_body.active {
+  display: block;
+}
+.footer_genre_body ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  /* background-color: green; */
+  height: 100%;
+}
+.footer_genre_body ul li {
+  flex: 0 0 3%;
+  margin: 5px;
+  box-sizing: border-box;
+  color: white;
+}
+.bantuan {
+  /* background-color: blue; */
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+/* ================== Responsive ================== */
+
+@media (max-width: 768px) {
+  .footer_container {
+    /* background-color: red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .copyright {
+    width: 100%;
+    align-items: start;
+  }
+  .genre,
+  .bantuan {
+    width: 100%;
+  }
+  .footer_genre_header {
+    border-bottom: 1px solid rgba(56, 56, 56, 1);
+  }
+  .footer_genre_header:hover {
+    background-color: rgba(42, 46, 49, 0.466);
+    border-radius: 5px;
+  }
+  .footer_genre_body {
+    max-height: none;
+    display: none;
+  }
+  .jumbotron {
+    height: 380px;
+  }
+  .copyright{
+    margin: 18px 0px 18px 0px;
+  }
+}
+@media (max-width: 650px) {
+  .jumbotron {
+    height: 350px;
+  }
+  .jumbotron_info_name {
+    gap: 10px;
+  }
+  .jumbotron_info_name h1 {
+    font-size: 38px;
+  }
+  .jumbotron_info_name p {
+    font-size: 13px;
+    max-width: 70%;
+  }
+
+  .card_container_toprating {
+    height: 225px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    width: max-content;
+    /* background-color: blue; */
+  }
+  .card_topRating {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 225px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .card_topRating p {
+    font-size: 12px;
+  }
+  .trending{
+    font-size: 11;
+  }
+  .copyright{
+    margin: 15px 0px 15px 0px;
+  }
+}
+@media (max-width: 480px) {
+  .jumbotron {
+    height: 230px;
+  }
+  .jumbotron_info_name {
+    gap: 5px;
+  }
+  .jumbotron_info_name h1 {
+    font-size: 28px;
+  }
+  .jumbotron_info-name p {
+    font-size: 9px;
+    max-width: 70%;
+  }
+  .hero_button button,
+  .hero_button i {
+    font-size: 11px;
+    padding: 4px 9px;
+  }
+  .topRating h1,
+  .filmTranding h1,
+  .rilisBaru h1{
+    font-size: 20px;
+  }
+  .card_container_toprating {
+    height: 180px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    width: max-content;
+    /* background-color: blue; */
+  }
+  .card_topRating {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .card_topRating p {
+    font-size: 10px;
+  }
+
+  .card_lanjutTonton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 340px;
+    height: 162;
+    overflow: hidden;
+    border-radius: 5px;
+    /* background-color: green; */
+  }
+  .card_lanjutTonton > img {
+    width: 100%;
+    max-width: 340px;
+    transition: transform 700ms;
+    object-fit: cover;
+  }
+  #lanjut_scroll_kiri,
+  #lanjut_scroll_kanan {
+    display: none;
+  }
+  .copyright{
+    margin: 10px 0px 10px 0px;
+  }
+
+}

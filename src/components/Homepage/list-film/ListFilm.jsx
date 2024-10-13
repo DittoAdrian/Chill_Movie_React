@@ -18,7 +18,8 @@ const ListFilm = ()=>{
             data={TopMoviesData}/>
             <TopRating 
             title='Film Trending'
-            data={TrandingMoviesData}/>
+            data={TrandingMoviesData}
+            topTen={true}/>
             <TopRating 
             title='Rilis Baru'
             data={NewMoviesData}/>
