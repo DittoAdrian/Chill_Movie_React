@@ -2,23 +2,28 @@ import {create} from 'zustand'
 
 const useData = create((set)=>({
     usersData : [
-        {
+        {   
+            id : 1 ,
             username:'putraganteng',
             password: 'putraganteng123',
             email: 'putraganteng@gmail.com'
         },
         {
+            id: 2 ,
             username:'falah666',
             password: 'falah123',
             email: 'falah@gmail.com'
         },
         {
+            id: 3 ,
             username:'gilang777',
             password:'gilang123',
             email: 'gilang@gmail.com'
         }
     ],
-    updateUsersData : (data) =>set((state) => ({ usersData: [...state.usersData,data ] })),
+    stateId : 3,
+    autoIncrementId : () => set((state)=>({stateId : state.stateId + 1})),
+    updateUsersData : (data) =>set((state) => ({ usersData: [...state.usersData,{id : state.stateId+1, ...data } ] })),
 
     userLogin : 'test',
     updateUserLogin : (newuser) => set({ userLogin: newuser }),
@@ -84,8 +89,7 @@ const useData = create((set)=>({
                     ],
             deskripsi : ''           
         },
-        {
-            id :  5,
+        {   id :  5,
             name : 'Spider-Man: Across the Spider-Verse',
             rating : 4.8,
             tahun: '2023',
@@ -97,10 +101,8 @@ const useData = create((set)=>({
                     'aksi',
                     'komedi'
                     ],
-            deskripsi : ''           
-        },
-        {
-            id :  6,
+            deskripsi : '' },
+        {   id :  6,
             name : 'The Devil all the time',
             rating : 4.1,
             tahun: '2020',
@@ -112,10 +114,8 @@ const useData = create((set)=>({
                     'horor',
                     'kriminal'
                     ],
-            deskripsi : ''           
-        },
-        {
-            id :  7,
+            deskripsi : ''},
+        {   id :  7,
             name : 'ALICE in Borderland',
             rating : 4.8,
             tahun: '2020',
@@ -264,8 +264,7 @@ const useData = create((set)=>({
                     ],
             deskripsi : ''           
         },
-        {
-            id :  17,
+        {   id :  17,
             name : 'Spider-Man: Across the Spider-Verse',
             rating : 4.8,
             tahun: '2023',
@@ -278,10 +277,8 @@ const useData = create((set)=>({
                     'aksi',
                     'sci-fi'
                     ],
-            deskripsi : ''           
-        },
-        {
-            id :  18,
+            deskripsi : ''},
+        {   id :  18,
             name : 'The Batman',
             rating : 4.7,
             tahun: '2022',
@@ -294,10 +291,8 @@ const useData = create((set)=>({
                     'aksi',
                     'crime'
                     ],
-            deskripsi : ''           
-        },
-        {
-            id :  19,
+            deskripsi : ''},
+        {   id :  19,
             name : 'Suzume',
             rating : 4.7,
             tahun: '2022',

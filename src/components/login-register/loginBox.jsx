@@ -44,8 +44,8 @@ const LoginBox = ()=>{
 
             {/* Form Input */}
             <form className={style.inputLogin}>
-                <InputUername togleUsernameValue={(e)=>{setUsernameValue(e)}} warning={warningUname}/>
-                <InputPassword toglePasswordValue={(e)=>{setPasswordValue(e)}} warning={warningPass}/>
+                <InputUername togleUsernameValue={(e)=>{setUsernameValue(e)}} warning={warningUname} togleMasuk={loginValidasi}/>
+                <InputPassword toglePasswordValue={(e)=>{setPasswordValue(e)}} warning={warningPass} togleMasuk={loginValidasi}/>
             </form>
 
             {/* Daftar */}

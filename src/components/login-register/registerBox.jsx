@@ -8,7 +8,7 @@ import InputPassword from "./Password";
 import ButtonDaftar from "./ButtonDaftar";
 
 const RegisterBox = () => {
-  const { usersData, updateUsersData} = useData();
+  const { usersData, updateUsersData,autoIncrementId} = useData();
   const [usernameValue, setUsernameValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [passwordValue2, setPasswordValue2] = useState("");
@@ -26,9 +26,10 @@ const RegisterBox = () => {
               password : passwordValue,
               email : `${usernameValue}@gmail.com`
             }
-            updateUsersData(dataUser)
-            alert('data telah dibuat')
-            navigate('/login')
+            updateUsersData(dataUser);
+            autoIncrementId();
+            alert('data telah dibuat');
+            navigate('/login');
           }
           else{setWarningReg(4),console.log(4)}
         }

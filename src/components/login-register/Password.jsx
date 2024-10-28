@@ -20,7 +20,8 @@ const InputPassword = (props)=>{
             <input 
                 type={visibel ? 'password' : 'text'} 
                 placeholder="Masukan kata sandi"
-                onChange={(e)=>{props.toglePasswordValue(e.target.value)}}/>
+                onChange={(e)=>{props.toglePasswordValue(e.target.value)}}
+                onKeyDown={(e)=>{e.key === 'Enter' && props.togleMasuk()}}/>
             <img 
                 src={visibel ? visibilityof : visibilityon} 
                 onClick={()=>{togleVisibel()}}/>

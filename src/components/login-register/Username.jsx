@@ -10,7 +10,8 @@ const InputUsername = (props)=>{
                 id="input-username" 
                 type="text" 
                 placeholder="Masukan username"
-                onChange={(e)=>{props.togleUsernameValue(e.target.value)}}/>
+                onChange={(e)=>{props.togleUsernameValue(e.target.value)}}
+                onKeyDown={(e)=>{e.key === 'Enter' && props.togleMasuk()}}/>
         </div>
         {  props.warning ? <p style={{fontSize:'14px', color: 'rgb(220,2,5)',margin:'0px'}}>masukan username dengan benar!</p> : ''}
         {props.warningReg === 1 ? <p style={{fontSize:'14px', color: 'rgb(220,2,5)',margin:'0px'}}>masukan username!</p> :""}
