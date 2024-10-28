@@ -20,6 +20,10 @@ const route = createBrowserRouter([
     {
         path:'/homepage',
         element: <Homepage/>
+    },
+    {
+        path:'/profile',
+        element: <h1>Halaman Profile</h1>
     }
 ])
 

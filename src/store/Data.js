@@ -23,6 +23,14 @@ const useData = create((set)=>({
     ],
     stateId : 3,
     autoIncrementId : () => set((state)=>({stateId : state.stateId + 1})),
+    updateUserById: (newData) =>
+        set((state) => {
+          const updatedUsers = state.usersData.map((user) =>
+            user.id === newData.id ? { ...user, ...newData } : user
+          );
+          return { usersData: updatedUsers };
+        }),
+
     updateUsersData : (data) =>set((state) => ({ usersData: [...state.usersData,{id : state.stateId+1, ...data } ] })),
 
     userLogin : 'test',
