@@ -1,3 +1,4 @@
+import { NavLink,Outlet } from "react-router-dom";
 import { useState } from "react";
 import ChillLogo from '../../../assets/images/Chill-Logo.svg';
 import profilePic from "../../../assets/images/profile.png";
@@ -7,8 +8,11 @@ import style from "../../../css/homepage.module.css";
 
 const Navbar = () => {
   const [visibel, setVisibel] = useState(false);
+  const classes = ({ isActive,isPending })=>{return  isPending?'ButtonLink':isActive?'ButtonLinkActive':''}
+
 
   return (
+    <>
     <nav className={style.navbar}>
       <div className={style.navbar_container}>
         <div className={style.menu}>
@@ -18,13 +22,13 @@ const Navbar = () => {
           </div>
           <ul>
             <li>
-              <a href="#">Film</a>
+              <NavLink className={classes} to='/homepage'>Film</NavLink>
             </li>
             <li>
-              <a href="#">Series</a>
+              <NavLink className={classes} to='/homepage'>Series</NavLink>
             </li>
             <li>
-              <a href="#">Daftar Saya</a>
+              <NavLink className={classes} to='/homepage/daftar-saya'>Daftar Saya</NavLink>
             </li>
           </ul>
         </div>
@@ -39,10 +43,11 @@ const Navbar = () => {
             }}
           />
         </div>
-
         <DropDown visibel={visibel} />
       </div>
     </nav>
+    <Outlet></Outlet>
+    </>
   );
 };
 export default Navbar;

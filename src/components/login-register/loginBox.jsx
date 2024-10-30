@@ -20,7 +20,7 @@ const LoginBox = ()=>{
     const loginValidasi = ()=>{
         for (const user of usersData){
             if (user.username === usernameValue && user.password === passwordValue){
-                return (updateUserLogin(user.username),navigate('/homepage'))
+                return (updateUserLogin(user.id),navigate('/homepage'))
             }
         }
         {usernameValue? setWarningUname(false):setWarningUname(true)}
@@ -28,8 +28,6 @@ const LoginBox = ()=>{
 
         return alert('username dan password salah')
     }
-
-
 
     return(
          <div className={style.formBox}>

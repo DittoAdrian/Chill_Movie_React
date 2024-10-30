@@ -39,8 +39,6 @@ const RegisterBox = () => {
     }
     else{setWarningReg(1),console.log(1)}
 
-    console.log(usersData)
-
     
     // if (usernameValue && passwordValue && passwordValue2) {
     //   if (passwordValue === passwordValue2) {
@@ -59,7 +57,7 @@ const RegisterBox = () => {
     //   console.log("data perlu di isi");
     // }
   };
-  console.log(usersData)
+  
   return (
     <div className={style.formBoxRegister}>
       

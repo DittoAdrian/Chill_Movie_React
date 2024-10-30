@@ -26,14 +26,14 @@ const useData = create((set)=>({
     updateUserById: (newData) =>
         set((state) => {
           const updatedUsers = state.usersData.map((user) =>
-            user.id === newData.id ? { ...user, ...newData } : user
+            user.id === newData.id ? newData : user
           );
           return { usersData: updatedUsers };
         }),
 
     updateUsersData : (data) =>set((state) => ({ usersData: [...state.usersData,{id : state.stateId+1, ...data } ] })),
 
-    userLogin : 'test',
+    userLogin : null,
     updateUserLogin : (newuser) => set({ userLogin: newuser }),
 
     moviesData : [

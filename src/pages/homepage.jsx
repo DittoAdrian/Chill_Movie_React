@@ -6,7 +6,7 @@ import Footer from '../components/Homepage/footer/footer.jsx'
 const Homepage = () => {
   return (
             <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
-                <Navbar />
+                {/* <Navbar /> */}
                 <Jumbotron/>
                 <ListFilm/>
                 <Footer/>
