@@ -33,7 +33,7 @@ const useData = create((set)=>({
 
     updateUsersData : (data) =>set((state) => ({ usersData: [...state.usersData,{id : state.stateId+1, ...data } ] })),
 
-    userLogin : null,
+    userLogin : 1,
     updateUserLogin : (newuser) => set({ userLogin: newuser }),
 
     moviesData : [
