@@ -5,6 +5,11 @@ import {useState} from 'react'
 const Footer = ()=>{
     const [showGenre, setShowGenre] = useState(false)
     const [showHelp, setShowHelp] = useState(false)
+    const genres = [
+        'Aksi', 'Drama', 'Komedi', 'Sains & Alam', 'Animasi', 'Fantasi Ilmiah & Fantasi',
+        'Petualangan', 'Thriller', 'Anak-anak', 'Kejahatan', 'Perang', 'Britama',
+        'KDrama', 'Romants', 'Bantuan', 'FAQ', 'Kontak Kami', 'Poivasi', 'Syarat & Ketentuan'
+      ];
 
     return (
         <footer>
@@ -24,20 +29,8 @@ const Footer = ()=>{
                 </div>
                 <div className={`${style.footer_genre_body} ${showGenre?style.active:''}`}>
                     <ul>
-                        <li>Aksi</li>
-                        <li>Anak-anak</li>
-                        <li>Anime</li>
-                        <li>British</li>
-                        <li>Drama</li>
-                        <li>Fantasi Ilmiah</li>
-                        <li>Kejahatan</li>
-                        <li>KDrama</li>
-                        <li>Komedi</li>
-                        <li>Petualanga</li>
-                        <li>Perang</li>
-                        <li>Romantis</li>
-                        <li>Sains & Alam</li>
-                        <li>Thriller</li>
+                        {genres.map((item,index)=>
+                        <li key={index}>{item}</li>)}
                     </ul>
                 </div>
             </section>

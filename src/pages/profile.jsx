@@ -16,12 +16,13 @@ const Profile = ()=>{
     const [userData,setUserData] = useState({username : '-',email:'-',password:'-'});
     const [hidePass,setHidePass] = useState(false)
     const daftarSaya = moviesData.filter((item)=>{return item.trending && !item.watched}).reverse()
- 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     useEffect(()=>{
         async function fetchUser() {
             if (userLogin) {
                 try{
-                    const res = await axios.get(`https://672643ab302d03037e6cf4b5.mockapi.io/users/${userLogin}`);
+                    const res = await axios.get(`${API_URL}/users/${userLogin}`);
                     const data = await res.data
                     setUserData(data)
                 }
@@ -52,7 +53,7 @@ const Profile = ()=>{
     const submitData = async (e)=>{
         e.preventDefault();
         try{
-        axios.put(`https://672643ab302d03037e6cf4b5.mockapi.io/users/${userLogin}`,userData)
+        axios.put(`${API_URL}/users/${userLogin}`,userData)
         }
         catch(err){
             console.log('gagal Update data')
@@ -61,10 +62,12 @@ const Profile = ()=>{
     }
 
     return (
+        // Container
         <div className={style.containerBox}>
             <div className={style.profileContainer}>
-            {userLogin ? 
+            {userLogin ? // jika User belum melakukan login, User akan di arahkan ke login page
             <>
+                {/* User photo & Change photo */}
                 <div className={style.editContainer}>
                     <h1>Profil Saya</h1>
                     <div className={style.profileImage}>
@@ -74,6 +77,8 @@ const Profile = ()=>{
                             <p><img/> Maksimal 2MB</p>
                         </div>
                     </div>
+
+                    {/* form data user dan edit button */}
                     <form className={style.formEdit} onSubmit={submitData}>
                         <div className={style.inputContainer}>
                             <label htmlFor="username">Nama Penguna</label>
@@ -106,6 +111,8 @@ const Profile = ()=>{
                         <button type='submit' onSubmit={(e)=>{submitData(e)}}>Simpan</button>
                     </form>
                 </div>
+
+                {/* card berlanganan */}
                 <div className={style.cardBerlangganan}>
                     <img src={warningIcon} alt="" />
                     <div>
@@ -124,10 +131,14 @@ const Profile = ()=>{
                 </Link>
             </div>}
             </div>
+
+            {/* Daftar Saya */}
             {userLogin && 
                 <TopRating 
                     title='Daftar Saya'
                     data={daftarSaya}/>}
+
+            {/* Footer */}
             <Footer/> 
         </div>
     )

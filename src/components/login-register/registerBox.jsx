@@ -15,12 +15,13 @@ const RegisterBox = () => {
   const [passwordValue2, setPasswordValue2] = useState("");
   const [warningReg,setWarningReg] = useState(0);
   const navigate = useNavigate()
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [fetchUsersData,setFetchUsersData] = useState([])
 
   useEffect(()=>{
     async function fetchUsers(){
-      const res = await fetch('https://672643ab302d03037e6cf4b5.mockapi.io/users');
+      const res = await fetch(`${API_URL}/users`);
       const data = await res.json();
       setFetchUsersData(data)
       console.log(data)
@@ -42,7 +43,7 @@ const RegisterBox = () => {
               email : `${usernameValue}@gmail.com`
             };
 
-            axios.post('https://672643ab302d03037e6cf4b5.mockapi.io/users', dataUser)
+            axios.post(`${API_URL}/users`, dataUser)
             .then(response => {
                 console.log('Data berhasil dikirim:', response.data);
             })
