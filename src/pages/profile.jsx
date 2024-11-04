@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react'
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 import style from '../css/profile.module.css'
 import profileLarge from '../assets/images/profileLarge.png'
 import editIcon from '../assets/images/EditIcon.svg'
@@ -11,11 +12,27 @@ import TopRating from '../components/Homepage/list-film/top-rating'
 import useData from '../store/Data'
 
 const Profile = ()=>{
-    const {usersData,userLogin,updateUserById,moviesData} = useData();
-    const [userData,setUserData] = useState(usersData.find((item)=>item.id === userLogin) || {username : '',email:'',password:''});
+    const {userLogin,moviesData,usersData,updateUserById} = useData();
+    const [userData,setUserData] = useState({username : '-',email:'-',password:'-'});
     const [hidePass,setHidePass] = useState(false)
     const daftarSaya = moviesData.filter((item)=>{return item.trending && !item.watched}).reverse()
-
+ 
+    useEffect(()=>{
+        async function fetchUser() {
+            if (userLogin) {
+                try{
+                    const res = await axios.get(`https://672643ab302d03037e6cf4b5.mockapi.io/users/${userLogin}`);
+                    const data = await res.data
+                    setUserData(data)
+                }
+                catch(err){
+                    console.log('Error',err)
+                }
+            }
+        }
+        fetchUser();
+    },[])
+ 
     const toggleUsername = (e)=>{
         const {username,email,password} = userData
         const inputValue = e.target.value;
@@ -32,9 +49,14 @@ const Profile = ()=>{
         setUserData({username,email,password:inputValue})
     }
 
-    const submitData = (e)=>{
+    const submitData = async (e)=>{
         e.preventDefault();
-        updateUserById({id:userLogin,...userData});
+        try{
+        axios.put(`https://672643ab302d03037e6cf4b5.mockapi.io/users/${userLogin}`,userData)
+        }
+        catch(err){
+            console.log('gagal Update data')
+        }
         alert('Data telah terUpdate!')
     }
 

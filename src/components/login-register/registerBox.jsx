@@ -1,5 +1,6 @@
 import { Link,useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import axios from 'axios'
 import useData from "../../store/Data";
 import style from "../../css/login.module.css";
 import ChillLogo from "./logo";
@@ -15,19 +16,44 @@ const RegisterBox = () => {
   const [warningReg,setWarningReg] = useState(0);
   const navigate = useNavigate()
 
+  const [fetchUsersData,setFetchUsersData] = useState([])
+
+  useEffect(()=>{
+    async function fetchUsers(){
+      const res = await fetch('https://672643ab302d03037e6cf4b5.mockapi.io/users');
+      const data = await res.json();
+      setFetchUsersData(data)
+      console.log(data)
+      console.log(usersData)
+    };
+    fetchUsers();
+  },[])
+
   const validasi = () => {
     if (usernameValue){
-      const foundUser = usersData.find((user) => user.username === usernameValue)
+      const foundUser = fetchUsersData.find((user) => user.username === usernameValue)
       if(!foundUser){
         if (passwordValue) {
           if(passwordValue === passwordValue2){
+
             const dataUser = {
               username : usernameValue,
               password : passwordValue,
               email : `${usernameValue}@gmail.com`
-            }
-            updateUsersData(dataUser);
+            };
+
+            axios.post('https://672643ab302d03037e6cf4b5.mockapi.io/users', dataUser)
+            .then(response => {
+                console.log('Data berhasil dikirim:', response.data);
+            })
+            .catch(error => {
+                console.error('Ada kesalahan saat mengirim data:', error);
+            });
+
+            // updateUsersData(dataUser);
+
             autoIncrementId();
+
             alert('data telah dibuat');
             navigate('/login');
           }

@@ -1,5 +1,5 @@
 import {Link,useNavigate} from 'react-router-dom'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import useData from '../../store/Data';
 import style from '../../css/login.module.css'
 import ChillLogo from './logo';
@@ -17,8 +17,18 @@ const LoginBox = ()=>{
     const navigate = useNavigate();
 
 
+    const [fetchUsersData,setFetchUsersData] = useState([])
+    useEffect(()=>{
+      async function fetchUsers(){
+        const res = await fetch('https://672643ab302d03037e6cf4b5.mockapi.io/users');
+        const data = await res.json();
+        setFetchUsersData(data)
+      }
+      fetchUsers();
+    },[])
+
     const loginValidasi = ()=>{
-        for (const user of usersData){
+        for (const user of fetchUsersData){
             if (user.username === usernameValue && user.password === passwordValue){
                 return (updateUserLogin(user.id),navigate('/homepage'))
             }
