@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { fetchUserById, fetchPutUser, fetchDeleteUser } from "../services/api";// Fetch api for MockApi
+import { useDispatch, useSelector } from "react-redux";
+import { updateUser } from "../store/redux/slices/slice";
 import style from "../css/profile.module.css";
 import profileLarge from "../assets/images/profileLarge.png"; //ASSET IMAGE
 import editIcon from "../assets/images/EditIcon.svg";
@@ -10,11 +12,13 @@ import warningIcon from "../assets/images/warning.png";
 import Footer from "../components/Homepage/footer/footer";
 import TopRating from "../components/Homepage/list-film/top-rating";
 import useData from "../store/Data"; //Zustand sudah tidak dipakai
-import { fetchUserById, fetchPutUser, fetchDeleteUser } from "../services/api";
+
 
 
 const Profile = () => {
-  const { userLogin,updateUserLogin, moviesData, usersData, updateUserById } = useData(); //Zustand sudah tidak dipakai
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state)=>state.login.id);
+  const {moviesData} = useData(); //Zustand sudah tidak dipakai
   const [hidePass, setHidePass] = useState(false);
   const [userData, setUserData] = useState({
     username: "-",
@@ -62,7 +66,7 @@ const Profile = () => {
       try{
         await fetchDeleteUser(userLogin);
         alert("Akun telah dihapus!")
-        updateUserLogin(null)
+        dispatch(updateUser({id: null}));
       }
       catch(err){
         console.log("Akun gagal dihapus")

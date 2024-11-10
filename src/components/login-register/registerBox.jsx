@@ -1,6 +1,5 @@
 import { Link,useNavigate } from "react-router-dom";
-import { useState,useEffect } from "react";
-import useData from "../../store/Data"; // tidak digunakan
+import { useState} from "react";
 import style from "../../css/login.module.css";
 import ChillLogo from "./logo";
 import InputUername from "./Username";
@@ -9,59 +8,50 @@ import ButtonDaftar from "./ButtonDaftar";
 import { fetchUsers, fetchPostUser  } from "../../services/api";
 
 const RegisterBox = () => {
-  const { usersData, updateUsersData,autoIncrementId} = useData(); //zustand tidak digunakan
   const [usernameValue, setUsernameValue] = useState(""); // Menyimpan value Input
   const [passwordValue, setPasswordValue] = useState("");
   const [passwordValue2, setPasswordValue2] = useState("");
   const [warningReg,setWarningReg] = useState(0); // state notifikasi warning
   const navigate = useNavigate()
 
-  const API_URL = import.meta.env.VITE_API_URL;
-
-  const [fetchUsersData,setFetchUsersData] = useState([])
-  useEffect(()=>{
-    async function fetchUsers(){
-      const res = await fetch(`${API_URL}/users`);
-      const data = await res.json();
-      setFetchUsersData(data)
-      console.log(data)
-    };
-    fetchUsers();
-  },[])
 
   // Validasi data inputan dengan data pada MockApi, lalu melakukan post pada data
   const validasi = async () => {
-    if (usernameValue){
-      const fetchDataUsers = await fetchUsers()
-      const foundUser = await fetchDataUsers.find((user) => user.username === usernameValue)
-      if(!foundUser){
-        if (passwordValue) {
-          if(passwordValue === passwordValue2){
+    if (usernameValue){   //jika usernameValue tidak ada akan menampilkan kode: 1 "masukan username"
+      try{    //try antisipasi error dari async/await
+        const fetchDataUsers = await fetchUsers()   //melakukan fetch semua data user pada mockapi
+        const foundUser = await fetchDataUsers.find((user) => user.username === usernameValue)  //mencari data username memastikan tidak ada yang sama
+        if(!foundUser){   //jika foundUser bernilai true akan menampilkan kode: 2 "username sudah digunakan"
+          if (passwordValue) {  //jika kolom password tidak diisi akan mnampilkan kode: 3 "kolom password perlu diisi"
+            if(passwordValue === passwordValue2){   // jika kedua kolom password berbeda akan menampilkan kode: 4 "password tidak sama"
 
-            const dataUser = {
-              username : usernameValue,
-              password : passwordValue,
-              email : `${usernameValue}@gmail.com`
-            };
+              const dataUser = {
+                username : usernameValue,
+                password : passwordValue,
+                email : `${usernameValue}@gmail.com`
+              };
 
-            try{
-              await fetchPostUser(dataUser);
-              alert("Akun Berhasil Dibuat!");
-              navigate('/login');
+              try{
+                await fetchPostUser(dataUser);
+                alert("Akun Berhasil Dibuat!");
+                navigate('/login');
+              }
+              catch(error){
+                alert("Akun gagal Dibuat", error)
+              }
+
             }
-            catch(err){
-              alert("Akun gagal Dibuat")
-            }
-
+            else{setWarningReg(4),console.log('code :',4)}
           }
-          else{setWarningReg(4),console.log('code :',4)}
+          else{setWarningReg(3),console.log('code :',3)}
         }
-        else{setWarningReg(3),console.log('code :',3)}
+        else{setWarningReg(2),console.log('code :',2)}
+        }
+      catch(error){
+        console.log("Gagal melakukan Registrasi akun")
       }
-      else{setWarningReg(2),console.log('code :',2)}
     }
     else{setWarningReg(1),console.log('code :',1)}
-  
   };
   
   return (

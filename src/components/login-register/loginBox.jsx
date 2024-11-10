@@ -1,6 +1,7 @@
 import {Link,useNavigate} from 'react-router-dom'
 import {useState,useEffect} from 'react'
-import useData from '../../store/Data'; //tidak dipakai
+import { useDispatch,useSelector } from 'react-redux';
+import { updateUser } from '../../store/redux/slices/slice';
 import style from '../../css/login.module.css'
 import ChillLogo from './logo';
 import InputUername from './Username'
@@ -10,26 +11,39 @@ import { fetchUsers } from '../../services/api';
 
 const LoginBox = ()=>{
 
-    const {usersData,updateUserLogin,userLogin} = useData() // zustand tidak digunakan
     const [usernameValue,setUsernameValue] = useState('') //Menyimpan data Inputan
     const [passwordValue, setPasswordValue] = useState('')
     const [warningUname,setWarningUname] = useState(false) //State kondisi untuk notifikasi inputan
     const [warningPass,setWarningPass] = useState(false)
-    const navigate = useNavigate(); // Navigate untuk meneruskan User ke Homepage
+    const navigate = useNavigate(); // Navigate untuk meneruskan User ke Homepagea
+    const dispatch = useDispatch(); // Trigger Reducer untuk merubah data
+    const userLogin2 = useSelector((state)=>state.login.id)
+
+    // Mengarahkan langsung user yang sudah login ke Homepage
+    useEffect(()=>{
+        if(userLogin2){
+            navigate('/homepage')
+        }
+    },[])
 
     // Validasi Username & Password Login
     const loginValidasi = async ()=>{
-        const data = await fetchUsers();
-
-        for (const user of data){
+        try{
+            const data = await fetchUsers();
+            for (const user of data){
             if (user.username === usernameValue && user.password === passwordValue){
-                return (updateUserLogin(user.id),navigate('/homepage'))
-            }
+                return (
+                    dispatch(updateUser({id: user.id})),
+                    navigate('/homepage')
+                )
+            }}
+            {usernameValue? setWarningUname(false):setWarningUname(true)}
+            {passwordValue? setWarningPass(false) : setWarningPass(true)}  
+            return alert('username dan password salah')
         }
-        {usernameValue? setWarningUname(false):setWarningUname(true)}
-        {passwordValue? setWarningPass(false) : setWarningPass(true)}  
-
-        return alert('username dan password salah')
+        catch(error){
+            console.log("Gagal Login : ", error)
+        }
     }
 
     return(

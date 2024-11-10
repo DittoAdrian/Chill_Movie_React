@@ -3,13 +3,14 @@ import dropDown1 from '../../../assets/images/dropDown1.png'
 import dropDown2 from '../../../assets/images/dropDown2.png'
 import dropDown3 from '../../../assets/images/dropDown3.png'
 import { NavLink } from 'react-router-dom'
-import useData from '../../../store/Data'
+import { useDispatch } from 'react-redux' 
+import { updateUser } from '../../../store/redux/slices/slice'
 
 const DropDown = (props)=>{
+    const dispatch = useDispatch();
     
-    const {updateUserLogin} = useData();
     const toogleLogout = ()=>{
-        updateUserLogin(null)
+        dispatch(updateUser({id: null}))
     }
 
     return (
