@@ -1,38 +1,39 @@
 import { Link,useNavigate } from "react-router-dom";
 import { useState,useEffect } from "react";
-import axios from 'axios'
-import useData from "../../store/Data";
+import useData from "../../store/Data"; // tidak digunakan
 import style from "../../css/login.module.css";
 import ChillLogo from "./logo";
 import InputUername from "./Username";
 import InputPassword from "./Password";
 import ButtonDaftar from "./ButtonDaftar";
+import { fetchUsers, fetchPostUser  } from "../../services/api";
 
 const RegisterBox = () => {
-  const { usersData, updateUsersData,autoIncrementId} = useData();
-  const [usernameValue, setUsernameValue] = useState("");
+  const { usersData, updateUsersData,autoIncrementId} = useData(); //zustand tidak digunakan
+  const [usernameValue, setUsernameValue] = useState(""); // Menyimpan value Input
   const [passwordValue, setPasswordValue] = useState("");
   const [passwordValue2, setPasswordValue2] = useState("");
-  const [warningReg,setWarningReg] = useState(0);
+  const [warningReg,setWarningReg] = useState(0); // state notifikasi warning
   const navigate = useNavigate()
+
   const API_URL = import.meta.env.VITE_API_URL;
 
   const [fetchUsersData,setFetchUsersData] = useState([])
-
   useEffect(()=>{
     async function fetchUsers(){
       const res = await fetch(`${API_URL}/users`);
       const data = await res.json();
       setFetchUsersData(data)
       console.log(data)
-      console.log(usersData)
     };
     fetchUsers();
   },[])
 
-  const validasi = () => {
+  // Validasi data inputan dengan data pada MockApi, lalu melakukan post pada data
+  const validasi = async () => {
     if (usernameValue){
-      const foundUser = fetchUsersData.find((user) => user.username === usernameValue)
+      const fetchDataUsers = await fetchUsers()
+      const foundUser = await fetchDataUsers.find((user) => user.username === usernameValue)
       if(!foundUser){
         if (passwordValue) {
           if(passwordValue === passwordValue2){
@@ -43,46 +44,24 @@ const RegisterBox = () => {
               email : `${usernameValue}@gmail.com`
             };
 
-            axios.post(`${API_URL}/users`, dataUser)
-            .then(response => {
-                console.log('Data berhasil dikirim:', response.data);
-            })
-            .catch(error => {
-                console.error('Ada kesalahan saat mengirim data:', error);
-            });
+            try{
+              await fetchPostUser(dataUser);
+              alert("Akun Berhasil Dibuat!");
+              navigate('/login');
+            }
+            catch(err){
+              alert("Akun gagal Dibuat")
+            }
 
-            // updateUsersData(dataUser);
-
-            autoIncrementId();
-
-            alert('data telah dibuat');
-            navigate('/login');
           }
-          else{setWarningReg(4),console.log(4)}
+          else{setWarningReg(4),console.log('code :',4)}
         }
-        else{setWarningReg(3),console.log(3)}
+        else{setWarningReg(3),console.log('code :',3)}
       }
-      else{setWarningReg(2),console.log(2)}
+      else{setWarningReg(2),console.log('code :',2)}
     }
-    else{setWarningReg(1),console.log(1)}
-
-    
-    // if (usernameValue && passwordValue && passwordValue2) {
-    //   if (passwordValue === passwordValue2) {
-    //     const foundUser = usersData.find(
-    //       (user) => user.username === usernameValue
-    //     );
-    //     if (foundUser) {
-    //       console.log("id sudah digunakan");
-    //     } else {
-    //       console.log("data dibuat");
-    //     }
-    //   } else {
-    //     console.log("password berbeda");
-    //   }
-    // } else {
-    //   console.log("data perlu di isi");
-    // }
+    else{setWarningReg(1),console.log('code :',1)}
+  
   };
   
   return (
@@ -102,15 +81,18 @@ const RegisterBox = () => {
         <InputUername
           togleUsernameValue={(e) => {setUsernameValue(e);}}
           warningReg={warningReg}
+          togleMasuk={validasi}
         />
         <InputPassword
           toglePasswordValue={(e) => {setPasswordValue(e);}}
           warningReg={warningReg}
+          togleMasuk={validasi}
         />
         <InputPassword
           title={"Konfirmasi Kata Sandi"}
           toglePasswordValue={(e) => {setPasswordValue2(e);}}
           warningReg={warningReg}
+          togleMasuk={validasi}
         />
       </form>
 

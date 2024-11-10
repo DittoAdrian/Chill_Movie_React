@@ -1,35 +1,27 @@
 import {Link,useNavigate} from 'react-router-dom'
 import {useState,useEffect} from 'react'
-import useData from '../../store/Data';
+import useData from '../../store/Data'; //tidak dipakai
 import style from '../../css/login.module.css'
 import ChillLogo from './logo';
 import InputUername from './Username'
 import InputPassword from './Password'
 import ButtonMasuk from './ButtonMasuk';
+import { fetchUsers } from '../../services/api';
 
 const LoginBox = ()=>{
 
-    const {usersData,updateUserLogin,userLogin} = useData()
-    const [usernameValue,setUsernameValue] = useState('')
+    const {usersData,updateUserLogin,userLogin} = useData() // zustand tidak digunakan
+    const [usernameValue,setUsernameValue] = useState('') //Menyimpan data Inputan
     const [passwordValue, setPasswordValue] = useState('')
-    const [warningUname,setWarningUname] = useState(false)
+    const [warningUname,setWarningUname] = useState(false) //State kondisi untuk notifikasi inputan
     const [warningPass,setWarningPass] = useState(false)
-    const navigate = useNavigate();
-    const API_URL = import.meta.env.VITE_API_URL;
+    const navigate = useNavigate(); // Navigate untuk meneruskan User ke Homepage
 
+    // Validasi Username & Password Login
+    const loginValidasi = async ()=>{
+        const data = await fetchUsers();
 
-    const [fetchUsersData,setFetchUsersData] = useState([])
-    useEffect(()=>{
-      async function fetchUsers(){
-        const res = await fetch(`${API_URL}/users`);
-        const data = await res.json();
-        setFetchUsersData(data)
-      }
-      fetchUsers();
-    },[])
-
-    const loginValidasi = ()=>{
-        for (const user of fetchUsersData){
+        for (const user of data){
             if (user.username === usernameValue && user.password === passwordValue){
                 return (updateUserLogin(user.id),navigate('/homepage'))
             }
