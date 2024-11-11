@@ -37,7 +37,7 @@ const LoginBox = ()=>{
                     navigate('/homepage')
                 )
             }}
-            {usernameValue? setWarningUname(false):setWarningUname(true)}
+            {usernameValue? setWarningUname(false): setWarningUname(true)}
             {passwordValue? setWarningPass(false) : setWarningPass(true)}  
             return alert('username dan password salah')
         }

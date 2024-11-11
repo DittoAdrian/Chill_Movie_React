@@ -17,13 +17,13 @@ const RegisterBox = () => {
 
   // Validasi data inputan dengan data pada MockApi, lalu melakukan post pada data
   const validasi = async () => {
-    if (usernameValue){   //jika usernameValue tidak ada akan menampilkan kode: 1 "masukan username"
-      try{    //try antisipasi error dari async/await
-        const fetchDataUsers = await fetchUsers()   //melakukan fetch semua data user pada mockapi
+    if (usernameValue){                                                                     //jika usernameValue tidak ada akan menampilkan kode: 1 "masukan username"
+      try{                                                                                  //try antisipasi error dari async/await
+        const fetchDataUsers = await fetchUsers()                                           //melakukan fetch semua data user pada mockapi
         const foundUser = await fetchDataUsers.find((user) => user.username === usernameValue)  //mencari data username memastikan tidak ada yang sama
-        if(!foundUser){   //jika foundUser bernilai true akan menampilkan kode: 2 "username sudah digunakan"
-          if (passwordValue) {  //jika kolom password tidak diisi akan mnampilkan kode: 3 "kolom password perlu diisi"
-            if(passwordValue === passwordValue2){   // jika kedua kolom password berbeda akan menampilkan kode: 4 "password tidak sama"
+        if(!foundUser){                                                                     //jika foundUser bernilai true akan menampilkan kode: 2 "username sudah digunakan"
+          if (passwordValue) {                                                              //jika kolom password tidak diisi akan mnampilkan kode: 3 "kolom password perlu diisi"
+            if(passwordValue === passwordValue2){                                           // jika kedua kolom password berbeda akan menampilkan kode: 4 "password tidak sama"
 
               const dataUser = {
                 username : usernameValue,
